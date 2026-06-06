@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stephen J. Owojori — Digital Marketing Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#F4EEE1;
+    --paper:#FBF8F1;
+    --ink:#15130E;
+    --muted:#6E6657;
+    --line:#D9D0BD;
+    --rust:#B14627;
+    --rust-deep:#8F3417;
+    --green:#33574A;
+    --blue:#2E4A66;
+    --gold:#9A6B16;
+    --shadow:24px 24px 0 rgba(21,19,14,.06);
+    --display:'Fraunces',Georgia,serif;
+    --body:'Hanken Grotesk',system-ui,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--cream);
+    color:var(--ink);
+    font-family:var(--body);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  body::before{
+    content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.45;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  }
+  .wrap{max-width:1180px;margin:0 auto;padding:0 26px;position:relative;z-index:2}
+  ::selection{background:var(--rust);color:var(--cream)}
+  a{color:inherit}
+
+  /* HERO */
+  header.hero{padding:62px 0 30px;border-bottom:1.5px solid var(--ink)}
+  .eyebrow{font-family:var(--body);font-weight:600;letter-spacing:.22em;text-transform:uppercase;font-size:.72rem;color:var(--rust)}
+  h1.name{
+    font-family:var(--display);font-weight:500;font-size:clamp(2.9rem,8vw,6.1rem);
+    line-height:.96;letter-spacing:-.02em;margin:.18em 0 .1em;
+  }
+  h1.name em{font-style:italic;color:var(--rust)}
+  .role{font-family:var(--display);font-style:italic;font-size:clamp(1.1rem,3.4vw,1.7rem);color:var(--muted);font-weight:400}
+  .summary{max-width:62ch;margin-top:1.3em;font-size:1.04rem;color:#2c281f}
+  .meta{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:1.5em;font-size:.9rem}
+  .meta a,.meta span{display:inline-flex;align-items:center;gap:7px;color:var(--ink);text-decoration:none;border-bottom:1.5px solid transparent;transition:border-color .2s,color .2s;padding-bottom:2px}
+  .meta a:hover{border-color:var(--rust);color:var(--rust)}
+  .meta .dot{width:5px;height:5px;border-radius:50%;background:var(--rust)}
+
+  .stats{display:flex;flex-wrap:wrap;gap:0;margin-top:34px;border:1.5px solid var(--ink)}
+  .stat{flex:1 1 150px;padding:18px 20px;border-right:1.5px solid var(--ink)}
+  .stat:last-child{border-right:0}
+  .stat b{font-family:var(--display);font-size:2rem;display:block;line-height:1}
+  .stat span{font-size:.78rem;letter-spacing:.04em;text-transform:uppercase;color:var(--muted)}
+
+  /* CONTROLS */
+  .controls{position:sticky;top:0;z-index:20;background:var(--cream);padding:22px 0 16px;margin-top:30px;border-bottom:1px solid var(--line)}
+  .controls .lab{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:11px}
+  .chips{display:flex;flex-wrap:wrap;gap:9px}
+  .chip{
+    font-family:var(--body);font-size:.86rem;font-weight:600;cursor:pointer;
+    padding:8px 16px;border:1.4px solid var(--ink);border-radius:40px;background:transparent;
+    color:var(--ink);transition:all .18s;white-space:nowrap;
+  }
+  .chip .ct{opacity:.5;font-weight:500;margin-left:5px}
+  .chip:hover{background:var(--ink);color:var(--cream)}
+  .chip:hover .ct{opacity:.6}
+  .chip.active{background:var(--rust);border-color:var(--rust);color:var(--cream)}
+  .chip.active .ct{opacity:.7}
+
+  /* GRID */
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:22px;padding:34px 0 20px}
+  .card{
+    background:var(--paper);border:1.5px solid var(--ink);padding:24px 23px 22px;
+    cursor:pointer;position:relative;display:flex;flex-direction:column;min-height:230px;
+    transition:transform .2s,box-shadow .2s;
+  }
+  .card:hover{transform:translate(-4px,-4px);box-shadow:8px 8px 0 var(--ink)}
+  .card .tagrow{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
+  .tag{font-size:.66rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:3px 9px;border-radius:30px;color:#fff}
+  .t-ppc{background:var(--rust)} .t-seo{background:var(--green)} .t-social{background:var(--gold)}
+  .t-analytics{background:var(--blue)} .t-ai{background:#5a3a72} .t-web{background:#1f1d18}
+  .card h3{font-family:var(--display);font-weight:500;font-size:1.42rem;line-height:1.08;letter-spacing:-.01em;margin-bottom:6px}
+  .card .emp{font-size:.78rem;color:var(--rust);font-weight:600;margin-bottom:10px}
+  .card p{font-size:.92rem;color:#3a352b;flex-grow:1}
+  .card .open{margin-top:16px;font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ink);display:inline-flex;align-items:center;gap:7px}
+  .card .open .arr{transition:transform .2s}
+  .card:hover .open .arr{transform:translateX(5px)}
+
+  /* MODAL */
+  .overlay{position:fixed;inset:0;background:rgba(21,19,14,.55);z-index:60;display:none;align-items:flex-start;justify-content:center;padding:40px 18px;overflow-y:auto;backdrop-filter:blur(2px)}
+  .overlay.show{display:flex}
+  .modal{background:var(--paper);border:1.5px solid var(--ink);max-width:760px;width:100%;box-shadow:16px 16px 0 rgba(21,19,14,.25);position:relative;animation:rise .28s ease}
+  @keyframes rise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+  .modal .top{padding:34px 38px 24px;border-bottom:1.5px solid var(--ink)}
+  .modal .body{padding:28px 38px 40px}
+  .modal h2{font-family:var(--display);font-weight:500;font-size:2.1rem;line-height:1.02;letter-spacing:-.015em;margin:10px 0 4px}
+  .modal .emp{font-size:.86rem;color:var(--rust);font-weight:600}
+  .modal .period{font-size:.82rem;color:var(--muted);margin-top:3px}
+  .modal h4{font-family:var(--body);font-size:.74rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--rust);margin:24px 0 10px}
+  .modal p.ctx{font-size:1rem;color:#2c281f}
+  .modal ul{list-style:none;margin-top:4px}
+  .modal ul li{position:relative;padding-left:20px;margin-bottom:8px;font-size:.96rem;color:#2c281f}
+  .modal ul li::before{content:"";position:absolute;left:0;top:9px;width:7px;height:7px;background:var(--rust);border-radius:1px}
+  .modal .pill-row{display:flex;flex-wrap:wrap;gap:7px;margin-top:6px}
+  .modal .pill{font-size:.78rem;background:var(--cream);border:1.3px solid var(--line);padding:4px 11px;border-radius:30px;color:#3a352b}
+  .modal .results{background:var(--cream);border:1.5px solid var(--ink);padding:16px 18px;margin-top:10px}
+  .modal .results .r{display:flex;justify-content:space-between;gap:12px;padding:6px 0;border-bottom:1px dashed var(--line);font-size:.92rem}
+  .modal .results .r:last-child{border-bottom:0}
+  .modal .results .r b{font-family:var(--display);font-weight:600}
+  .modal a.dl{display:inline-flex;align-items:center;gap:9px;margin-top:18px;font-size:.88rem;font-weight:700;letter-spacing:.04em;text-decoration:none;color:var(--cream);background:var(--ink);border:1.5px solid var(--ink);padding:11px 20px;transition:all .18s}
+  .modal a.dl:hover{background:var(--rust);border-color:var(--rust);transform:translate(-2px,-2px);box-shadow:4px 4px 0 var(--ink)}
+  .close{position:absolute;top:18px;right:20px;width:38px;height:38px;border:1.5px solid var(--ink);background:var(--paper);border-radius:50%;cursor:pointer;font-size:1.1rem;line-height:1;display:flex;align-items:center;justify-content:center;transition:all .18s;z-index:2}
+  .close:hover{background:var(--rust);color:#fff;border-color:var(--rust);transform:rotate(90deg)}
+
+  footer{border-top:1.5px solid var(--ink);margin-top:30px;padding:40px 0 60px}
+  footer .fname{font-family:var(--display);font-size:1.5rem;font-weight:500}
+  footer p{font-size:.9rem;color:var(--muted);margin-top:6px;max-width:54ch}
+
+  .empty{padding:60px 0;text-align:center;color:var(--muted);font-family:var(--display);font-style:italic;font-size:1.3rem;display:none}
+
+  /* load anim */
+  .fade{opacity:0;transform:translateY(16px);animation:fin .6s ease forwards}
+  @keyframes fin{to{opacity:1;transform:none}}
+
+  @media(max-width:640px){
+    header.hero{padding:46px 0 26px}
+    .modal .top,.modal .body{padding-left:24px;padding-right:24px}
+    .stat{flex-basis:50%;border-bottom:1.5px solid var(--ink)}
+    .stat:nth-child(2){border-right:0}
+    .card{min-height:auto}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow fade" style="animation-delay:.05s">Digital Marketing · PPC · SEO · Automation</div>
+    <h1 class="name fade" style="animation-delay:.12s">Stephen J. <em>Owojori</em></h1>
+    <div class="role fade" style="animation-delay:.2s">Senior Digital Marketer &amp; AI Automation Specialist</div>
+    <p class="summary fade" style="animation-delay:.28s">Over ten years turning strategy into measurable growth across paid media, SEO, content, analytics and marketing automation. I have led multi-brand agency accounts, built AI-powered workflows and founded a healthtech venture. Below is a working selection of the projects behind that, grouped by discipline.</p>
+    <div class="meta fade" style="animation-delay:.36s">
+      <a href="mailto:owojoristephen@gmail.com">✉ owojoristephen@gmail.com</a>
+      <a href="tel:07448142528">✆ 07448 142528</a>
+      <a href="https://www.linkedin.com/in/stephen-owojori-aa0387132/" target="_blank" rel="noopener">in · LinkedIn</a>
+      <span><span class="dot"></span>Manchester, England</span>
+    </div>
+    <div class="stats fade" style="animation-delay:.44s">
+      <div class="stat"><b>10+</b><span>Years experience</span></div>
+      <div class="stat"><b>20+</b><span>Projects &amp; clients</span></div>
+      <div class="stat"><b>6</b><span>Disciplines</span></div>
+      <div class="stat"><b>£600k+</b><span>Ad spend managed</span></div>
+    </div>
+  </div>
+</header>
+
+<div class="controls">
+  <div class="wrap">
+    <div class="lab">Filter by discipline</div>
+    <div class="chips" id="chips"></div>
+  </div>
+</div>
+
+<main class="wrap">
+  <div class="grid" id="grid"></div>
+  <div class="empty" id="empty">Nothing in this discipline yet.</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fname">Stephen J. Owojori</div>
+    <p>Available for senior digital marketing roles. Reach me at owojoristephen@gmail.com or on LinkedIn. References and live work samples available on request.</p>
+  </div>
+</footer>
+
+<div class="overlay" id="overlay">
+  <div class="modal" id="modal" role="dialog" aria-modal="true">
+    <button class="close" id="close" aria-label="Close">✕</button>
+    <div class="top" id="modalTop"></div>
+    <div class="body" id="modalBody"></div>
+  </div>
+</div>
+
+<script>
+const DISC = {
+  ppc:{label:'Paid Media', cls:'t-ppc'},
+  seo:{label:'SEO', cls:'t-seo'},
+  social:{label:'Social & Content', cls:'t-social'},
+  analytics:{label:'Analytics', cls:'t-analytics'},
+  ai:{label:'AI & Automation', cls:'t-ai'},
+  web:{label:'Web', cls:'t-web'}
+};
+
+const PROJECTS = [
+  {
+    client:'MiAlgae', emp:'Cornerstone Design & Marketing', period:'Mar – Apr 2026',
+    disc:['ppc'],
+    blurb:'Multi-channel B2B PPC lead generation for an Edinburgh biotech, exceeding every campaign target.',
+    context:'MiAlgae is an Edinburgh biotech (2024 Earthshot Prize finalist) producing algae-derived omega-3 DHA from whisky distillery by-products. I translated an 18-page proposal into a fully built three-channel campaign for MiAlgaePet, selling to B2B pet food manufacturers, not consumers.',
+    did:[
+      'Built Google Search, Google Display and LinkedIn campaigns on a £1,500 total media budget (£500 per channel).',
+      'Led with B2B positioning throughout: niche keyword research, competitor research and account-based targeting layered by company, job function and seniority.',
+      'Designed LinkedIn Lead Gen forms and set up conversion tracking via GTM and GA4.',
+      'Spotted a Display lead-quality issue: most clicks came from low-value mobile gaming and children\u2019s app inventory, so I excluded those categories and refocused on relevant audiences.'
+    ],
+    results:[['Impressions','52,135 (target 20–35k)'],['Whitepaper submissions','26 (target 8–15)'],['Contact form submissions','124'],['Total clicks','785']],
+    tools:['Google Ads','LinkedIn Campaign Manager','GA4','Google Tag Manager']
+  },
+  {
+    client:'YMCAfit', emp:'Cornerstone Design & Marketing', period:'Ongoing account',
+    disc:['ppc','seo','analytics'],
+    blurb:'Full paid-media management and SEO strategy for a UK fitness education provider, with a two-year performance story.',
+    context:'YMCAfit (ymcafit.org.uk) is a UK fitness education provider. I owned monthly paid media and built the forward SEO strategy across four course categories: Yoga, Pilates, PT and CPD.',
+    did:[
+      'Delivered a two-year performance presentation covering all headline results and the full budget: roughly £445,109 on Google and £83,000 on Meta.',
+      'Ran monthly PPC management and reporting across Google and Meta, with forecast spreadsheets and a weekly reporting rhythm.',
+      'Authored the SEO Strategy 2026–2027: a 30-slide deck, strategy document and keyword workbook.',
+      'Built CIMSPA affiliate reporting in GA4 Explore and wrote Meta video creative briefs (frame-by-frame structure plus ElevenLabs voiceover scripts) for all four categories.'
+    ],
+    results:[['Sessions (year to date)','67,882'],['Total users','48,225'],['Key events','11,368'],['Views','172,400'],['Top channel','Organic Search (20,296 sessions)']],
+    report:'reports/ymcafit-ga4-report.pdf',
+    tools:['Google Ads','Meta Ads','GA4','SEMrush','Auction Insights','GSC','PowerPoint','ElevenLabs']
+  },
+  {
+    client:'Trafford Leisure (LIVEMORE / MOVEMORE)', emp:'Cornerstone Design & Marketing', period:'2025 – 2026',
+    disc:['ppc','social','analytics'],
+    blurb:'Multi-brand annual PPC and social strategy, plus end-of-campaign reporting and attribution diagnosis.',
+    context:'A two-brand leisure account (LIVEMORE and MOVEMORE) covering paid search, paid social, email and website tracking.',
+    did:[
+      'Built an 83-slide annual paid strategy across both brands: ten campaign types each, activity calendars, conservative forecasting and branded search defence.',
+      'Reworked the strategy against client action items: repositioning Always-On as foundational, moving GP Referral to SEO, fixing Meta\u2019s funnel role and adding cost-per-conversion logic.',
+      'Produced a 50-slide social media strategy and audit, diagnosing fragmentation, a near-dormant move page and broken tracking.',
+      'Wrote the four-section end-of-campaign report (PPC, Email, Social, Websites) and four re-engagement emails, and authored a 29,000-word knowledge base plus a Pixel and UTM specification.'
+    ],
+    tools:['Google Ads','Meta Ads','GA4','PowerPoint','Email platforms']
+  },
+  {
+    client:'Chorley Building Society', emp:'Cornerstone Design & Marketing', period:'Dec 2025 – 2026',
+    disc:['ppc','seo','analytics'],
+    blurb:'Full account ownership for a regulated financial services client, from Google Ads audits to a multi-channel ISA campaign.',
+    context:'Chorley Building Society is a Lancashire building society. I ran a fixed-retainer account spanning paid search, SEO, analytics and a renewal strategy, all under financial services compliance.',
+    did:[
+      'Ran an account audit and 2026 renewal strategy, and a December Google Ads audit that surfaced a budget mismatch, a paused Mortgages campaign error and a Quality Score insight.',
+      'Optimised Google Ads structure, keywords and geo-targeting for the £500 cashback offer.',
+      'Took over SEO from a colleague: meta descriptions, page titles, a schema field discovery that removed a third-party dependency, redirects and canonical checks.',
+      'Built GA4 tracking and dashboards (including a top-ten referral view) and led the ISA-season campaign with compliance-aware copy, an openpyxl proofing document and a designer brief.'
+    ],
+    results:[['Sessions','36,788 (+64%)'],['Total users','29,425 (+65%)'],['Key events','65,081 (+100%)'],['Views','64,651'],['Period','May 2026 vs prior']],
+    report:'reports/chorley-ga4-report.pdf',
+    tools:['Google Ads','GA4','SEMrush','Excel / openpyxl']
+  },
+  {
+    client:'PIN Communications', emp:'Cornerstone Design & Marketing', period:'2026',
+    disc:['seo','ppc','social','web','analytics'],
+    blurb:'Day-to-day owner of a B2B account across SEO, PPC, social, reporting and a bespoke React dashboard.',
+    context:'PIN Communications (formerly Print Image Network and UK Engage) is a UK B2B business running two distinct lines. I owned the account end to end.',
+    did:[
+      'Built a brand voice knowledge base through sequenced website scraping, voice analysis and reusable templates.',
+      'Produced monthly social calendars (Feb–May 2026), LinkedIn copy and carousels, with a designer briefing and client approval loop.',
+      'Authored the PPC Strategy 2026 deck and an eight ad-group Google Ads model with UTM tracking, and led an evidence-based SEO shift to long-tail targeting.',
+      'Designed and built Atelier, a React client-operations dashboard, and delivered client-ready monthly reports.'
+    ],
+    tools:['SEMrush','Google Ads','GA4','RankMath','HubSpot Pro','LinkedIn Campaign Manager','Scoro','React']
+  },
+  {
+    client:'HPP (Hill\u2019s Panel Products)', emp:'Kydos Digital', period:'Dec 2025 – Jan 2026',
+    disc:['ppc','social'],
+    blurb:'Google Ads audit and a trade-focused social campaign for the Glide Frameless sliding door range.',
+    context:'HPP (Hill\u2019s Panel Products) is a trade supplier. I delivered a paid audit and a social campaign aimed at trade professionals: bedroom fitters, furniture makers and installers.',
+    did:[
+      'Audited a live Google Ads account and diagnosed a stark divide: remarketing delivering £6.38 per conversion against brand awareness at £235.35, roughly 37 times more expensive.',
+      'Identified about £135 a month of wasted competitor-brand spend, a dead-weight competitor ad group and missing call conversion tracking.',
+      'Scoped the Glide Frameless brief, scraped both landing pages to verify product claims, and caught factual errors including an incorrect décor count, a wrong width figure and a wrong handle colour.',
+      'Delivered eight Facebook and Instagram posts, a proofing document with a claim-by-claim verification table, and a detailed designer brief.'
+    ],
+    tools:['Google Ads','Meta','Landing page research']
+  },
+  {
+    client:'Physio Matters', emp:'Kydos Digital', period:'2025 – 2026',
+    disc:['ppc','seo','analytics'],
+    blurb:'Eleven workstreams for a specialist clinic, starting with a six-month conversion-tracking failure I diagnosed and fixed.',
+    context:'Physio Matters is a specialist physiotherapy clinic in Royton, Greater Manchester, running Google Ads, Meta and LinkedIn.',
+    did:[
+      'Diagnosed and fixed a Meta conversion tracking failure: six months and £746 spent recording zero real conversions.',
+      'Ran a reporting integrity audit, separating raw clicks from the roughly five genuine form fills, and rebuilt GA4 tracking by source and medium.',
+      'Optimised Google Ads (Target CPA, keyword cleanup) and relaunched LinkedIn with a new strategy and ad copy.',
+      'Prioritised a Screaming Frog technical audit (27 issues, P1–P5) and pivoted keyword strategy from generic B2B terms to condition-based targeting (stroke, MS, Parkinson\u2019s).'
+    ],
+    tools:['Google Ads','Meta Ads','GA4','GTM','Screaming Frog','LinkedIn']
+  },
+  {
+    client:'Citywide Housing', emp:'', period:'Oct 2025 – present',
+    disc:['seo','ppc'],
+    blurb:'An SEO-led lead engine for a guaranteed-rent brand, generating inbound leads organically over a 12-month-plus programme.',
+    context:'Citywide Housing runs a guaranteed rent scheme for landlords across Yorkshire, Greater Manchester, Lancashire and the Midlands. I led a full strategic repositioning and have run the ongoing organic content and SEO programme that drives its inbound enquiries. The figures below are a representative two-month sample (March and May 2026) from that longer run.',
+    did:[
+      'Repositioned the brand and built a structured three-theme acquisition funnel (Renters\u2019 Rights Act awareness, landlord risk and compliance, guaranteed-rent solution) moving cold readers toward enquiry.',
+      'Ran a sustained content programme of around five blogs a week, every post SEO-optimised, averaging a TruSEO score of 84.6/100 in May with a single post reaching 100.',
+      'Generated inbound leads through organic search alone, with no paid spend, captured and qualified in the GoHighLevel CRM via a lead qualification and routing automation.',
+      'Earned page-one rankings for terms including "housing association Bradford" and "citywide housing", and grew traffic 17.4% over a 28-day window.'
+    ],
+    results:[['Inbound organic leads (2-month sample)','~71'],['Channel','SEO &amp; content only (no paid)'],['Blogs published (2 months)','~44'],['Avg TruSEO score (May)','84.6 / 100'],['Traffic growth','+17.4% (28-day window)'],['Programme length','12 months+ and ongoing']],
+    report:'reports/citywide-housing-seo-report.pdf',
+    tools:['SEMrush','GoHighLevel','GA4','RankMath / TruSEO','Content strategy']
+  },
+  {
+    client:'Citywide Blocks', emp:'', period:'2025 – 2026',
+    disc:['seo'],
+    blurb:'A complete SEO content marketing programme built on specialist "problem block" positioning.',
+    context:'Citywide Blocks buys blocks of flats burdened with complex problems: cladding and fire safety issues, financial distress and management disputes. I recognised the generic property strategy did not fit and redirected it into a specialist niche.',
+    did:[
+      'Built a seven-pillar content architecture and a 96-post twelve-month editorial calendar.',
+      'Set content rules and benchmarks, keyword and audience strategy, technical SEO and schema planning.',
+      'Designed a conversion framework, eight lead magnets, email sequences and paid media across Google, Meta and LinkedIn.',
+      'Produced a full KPI framework, a £173,500 budget, risk mitigation and a launch roadmap.'
+    ],
+    results:[['Year-one targets','96+ posts, 12k+ monthly visitors'],['Keyword goal','75+ in top 10'],['Lead goal','350+ valuation requests'],['List goal','2,500+ subscribers']],
+    tools:['SEMrush','Schema','Google / Meta / LinkedIn Ads']
+  },
+  {
+    client:'Unibox', emp:'Cornerstone Design & Marketing', period:'2026',
+    disc:['seo'],
+    blurb:'Technical SEO for a website rebuild and migration, built on careful backlink and ranking analysis.',
+    context:'Unibox is a Manchester manufacturer of modular aluminium profile systems, LED lighting and illuminated displays. I owned the technical SEO for the pre-launch migration phase of a WordPress rebuild.',
+    did:[
+      'Investigated a backlink profile of 700+ referring domains and built a keyword tracking baseline across 600+ keywords.',
+      'Used backlink and traffic data to prioritise a 301 redirect strategy, focusing effort on the small number of pages that genuinely held equity.',
+      'Worked around the lack of Search Console by building the analysis from SEMrush and GA4, recommending GSC for post-launch monitoring.',
+      'Wrote defensible reports, qualifying fluctuating counts and positioning the disavow recommendation as optional and conditional.'
+    ],
+    tools:['SEMrush','GA4','301 redirect mapping']
+  },
+  {
+    client:'Blog Writing Package', emp:'Kydos Digital', period:'2025 – 2026',
+    disc:['seo','social'],
+    blurb:'Fifteen SEO-optimised blogs across three property clients, all to a defined house style.',
+    context:'Three complete five-blog SEO content packages built to the Kydos Digital blog rules, adapting one rule set across very different property businesses.',
+    did:[
+      'Wrote five blogs each for Citywide Blocks, Citywide Housing and A.J Residences (The Gambia).',
+      'Applied the house style throughout: focus keyword in title and URL, TL;DR opener, structured H2/H3, roughly 1.29% keyword density, LSI terms, three CTAs and FAQ sections.',
+      'Delivered local-SEO targeting for Northern regions and diaspora audiences.',
+      'Produced a full image-optimisation guide (21 images with concepts, file names and alt text) and internal-linking strategies with cross-linking matrices.'
+    ],
+    tools:['Keyword research','On-page SEO','Content strategy']
+  },
+  {
+    client:'Ethical Wealth Academy / Ayub Kayat', emp:'Kydos Digital', period:'2026',
+    disc:['social'],
+    blurb:'Full social media content function for a property-investment educator across two parallel accounts.',
+    context:'Ethical Wealth Academy is a UK property investment education company ("profit with purpose") founded by Ayub Kayat in Leeds. I ran two accounts in parallel: his personal brand and the company page, on a £500/month retainer.',
+    did:[
+      'Built the brand foundation: two distinct voices, bios, profile optimisation, a cross-promotion strategy and an onboarding document.',
+      'Created a 140+ question brand discovery guide, supported the discovery session and turned it into a usable brand profile with a confidentiality rule around the founder\u2019s backstory.',
+      'Ran several content calendar cycles (launch, a six-week viral strategy and a high-frequency 5-posts-a-week calendar) and an event funnel across three dates.',
+      'Authored a ten-section Digital Marketing Strategy and Operations Manual, and caught a pricing error before it went live.'
+    ],
+    tools:['Instagram','Facebook','TikTok','Brand strategy']
+  },
+  {
+    client:'MyDefib (HeartHero)', emp:'Cornerstone Design & Marketing', period:'Jan – Apr 2026',
+    disc:['social','ppc','seo'],
+    blurb:'Social, content, PPC and SEO for an at-home defibrillator brand in a sensitive, regulated health category.',
+    context:'MyDefib is the consumer brand for the HeartHero at-home AED, distributed in the UK by WelMedical. I worked across the account, managing a multi-entity brand structure (distributor versus product brand).',
+    did:[
+      'Led a launch calendar rebrand and a 12-month PPC rework, with monthly organic content for March and April.',
+      'Built a Social Media Knowledge Base and managed ongoing client compliance in a sensitive health category.',
+      'Ran competitive and exclusivity monitoring with Google Alerts and researched a "Big Bang" influencer strategy.',
+      'Produced an SEO strategy and content plan, sourcing from authoritative bodies (RCUK, BHF, NHS, HSE, The Circuit).'
+    ],
+    tools:['Excel','Scoro','Google Alerts','GSC','Screaming Frog','SEMrush']
+  },
+  {
+    client:'Kydos Digital (Agency Brand)', emp:'Kydos Digital', period:'Apr – May 2026',
+    disc:['social'],
+    blurb:'A full month of in-house social content, fully scripted, plus cold-audience concepts and brand voice direction.',
+    context:'Owned the agency\u2019s own social output: planning, scripting and a client-ready deliverable, set deliberately against generic corporate copy.',
+    did:[
+      'Built a 30-day calendar (30 posts across Reels, Carousels and Static, 3–4 a week) researched against 2026 trends, weaving in anti-AI-fatigue, social SEO, the LinkedIn video revival and UK awareness days.',
+      'Wrote all 30 posts in full: hooks, Reel scripts, slide-by-slide carousel copy, captions and tailored hashtags.',
+      'Packaged the calendar into a branded, formatted Word document deliverable.',
+      'Defined the brand voice (punchy, honest, human) and produced 30 cold-audience static concepts plus a POV-style Reel.'
+    ],
+    tools:['Content strategy','Copywriting','Brand voice','Word']
+  },
+  {
+    client:'Santen Eyecare Education', emp:'Cornerstone Design & Marketing', period:'2026',
+    disc:['analytics'],
+    blurb:'End-to-end GA4 and Google Tag Manager analytics build for a virtual eyecare education platform.',
+    context:'Santen Eyecare Education (seesanten.com) is a WordPress virtual events platform. I took the project from a blank tracking setup to a published, client-facing GA4 dashboard.',
+    did:[
+      'Completed a full site audit, mapping every trackable event, form, button and video into a measurement plan.',
+      'Built the GTM container: data layer variables, triggers and GA4 event tags, QA\u2019d through GTM Preview and GA4 DebugView.',
+      'Configured GA4 key events, explorations and custom dimensions.',
+      'Diagnosed implementation blockers (container installation and AJAX form handling) and coordinated fixes with developers, then built a custom client-facing dashboard with plain-language documentation.'
+    ],
+    tools:['GA4','Google Tag Manager','GTM Preview / DebugView']
+  },
+  {
+    client:'Cheetah Transformation', emp:'', period:'2025 – 2026',
+    disc:['seo','analytics','social'],
+    blurb:'SEO and analytics performance analysis, a site-speed audit and a LinkedIn content concept.',
+    context:'A Smartsheet consultancy client. I sat on the execution side: gathering and analysing data, running audits and producing client-ready deliverables.',
+    did:[
+      'Produced a two-part driver analysis and a two-year trend report from GA4, Search Console and SEMrush, delivered as a client report.',
+      'Ran a site-speed audit across ten pages with PageSpeed Insights, documented with developer-ready observations.',
+      'Created a LinkedIn staff-spotlight content concept with a reusable question set.',
+      'Wrote a standalone, self-explanatory design brief so a designer could build the template without prior context.'
+    ],
+    tools:['GA4','Search Console','SEMrush','PageSpeed Insights','Scoro']
+  },
+  {
+    client:'Silks Estates', emp:'', period:'2026',
+    disc:['web'],
+    blurb:'A full front-end redesign of a lettings website, built on a reusable token-based design system.',
+    context:'Silks Estates is a residential lettings and property management brand. I led the Phase 1 visual redesign, moving it from a generic look to a confident branded identity.',
+    did:[
+      'Built a complete design system in CSS: brand palette around #662E91, shadow and radius scales, Swiss-grid spacing tokens, custom animations, reusable utilities, a branded scrollbar and accessible focus rings.',
+      'Rebuilt the Header as a sticky blurred nav bar with an active-link indicator and a responsive off-canvas mobile menu.',
+      'Designed the Hero with an accent headline, dual CTAs and a floating search card.',
+      'Iterated from feedback: restored dropped links, cut the hero overlay and re-centred content.'
+    ],
+    tools:['Next.js (App Router)','Tailwind CSS','TypeScript']
+  },
+  {
+    client:'RONKE AI', emp:'Founder & CEO · RONKE AI Ltd', period:'2025 – present',
+    disc:['ai'],
+    blurb:'A healthtech venture: voice-first remote patient monitoring for digitally excluded heart failure patients.',
+    context:'I founded and lead RONKE AI Ltd (Company No. 16865109) in Manchester, building voice-first remote patient monitoring for elderly heart failure patients who cannot use smartphone health apps.',
+    did:[
+      'Designed a system that makes proactive AI phone calls (landline and mobile compatible), holds natural clinical conversations and flags early warning signs to NHS clinical teams to reduce readmissions.',
+      'Prepared an Innovate UK Biomedical Catalyst grant application and designed a clinical validation study.',
+      'Repositioned the proposition from voice biomarkers toward voice-trend monitoring.',
+      'Produced NHS-standard study documentation, clinical risk frameworks, DSPT and GDPR compliance work, and IP and patent strategy.'
+    ],
+    tools:['Grant writing','Clinical study design','Retell AI','DSPT / GDPR']
+  },
+  {
+    client:'REVAA', emp:'Independent build', period:'2025 – 2026',
+    disc:['ai'],
+    blurb:'A white-labelled Retell AI voice agent for estate agencies, with deep property-data integrations.',
+    context:'REVAA is a voice-AI product for estate agencies, built on Retell AI and rebuilt as a white-label platform.',
+    did:[
+      'Configured and optimised the Retell AI voice agent and led the white-label rebuild.',
+      'Integrated property and finance APIs: EPC, PropertyData, TrueLayer Open Banking and HMRC.',
+      'Produced deployment documentation and LinkedIn content for the product.',
+      'Explored a Saudi market expansion.'
+    ],
+    tools:['Retell AI','API integration','Open Banking']
+  },
+  {
+    client:'GoHighLevel White-Label & Automation', emp:'Cornerstone Design & Marketing', period:'2026',
+    disc:['ai'],
+    blurb:'A leadership pitch to adopt GoHighLevel as a resellable SaaS, backed by live automations I had already built.',
+    context:'A strategic case to senior leadership for adopting GoHighLevel as a white-label SaaS platform, sold to clients as a recurring retainer product, plus a parallel PPC and social automation project.',
+    did:[
+      'Authored a 14-slide leadership presentation making the commercial, operational and client-value case.',
+      'Built five live automations: lead qualification and routing, nurture with reply detection, booking flows, reputation management and pipeline automation.',
+      'Ran a Clay.com prospecting workstream with a compliance assessment, and corrected flawed assumptions (sending method, a realistic 40–70% hit rate).',
+      'Scoped a PPC and social automation project using Data Fetcher for reporting and Make.com plus the Claude API for AI intelligence, with an interactive Airtable mockup.'
+    ],
+    tools:['GoHighLevel','Clay.com','Make.com','Airtable','Data Fetcher','Claude API']
+  }
+];
+
+// build chips
+const counts = {all:PROJECTS.length};
+Object.keys(DISC).forEach(k=>counts[k]=PROJECTS.filter(p=>p.disc.includes(k)).length);
+const chipWrap = document.getElementById('chips');
+const chipDefs = [['all','All Work'], ...Object.entries(DISC).map(([k,v])=>[k,v.label])];
+chipDefs.forEach(([k,label],i)=>{
+  const b=document.createElement('button');
+  b.className='chip'+(k==='all'?' active':'');
+  b.dataset.k=k;
+  b.innerHTML=label+'<span class="ct">'+counts[k]+'</span>';
+  b.onclick=()=>setFilter(k);
+  chipWrap.appendChild(b);
+});
+
+const grid=document.getElementById('grid');
+const empty=document.getElementById('empty');
+
+function render(list){
+  grid.innerHTML='';
+  list.forEach((p,i)=>{
+    const idx=PROJECTS.indexOf(p);
+    const card=document.createElement('article');
+    card.className='card fade';
+    card.style.animationDelay=(i*0.04)+'s';
+    const tags=p.disc.map(d=>`<span class="tag ${DISC[d].cls}">${DISC[d].label}</span>`).join('');
+    const rep=p.report?`<span class="tag" style="background:var(--ink)">⤓ Report</span>`:'';
+    card.innerHTML=`<div class="tagrow">${tags}${rep}</div>
+      <h3>${p.client}</h3>
+      ${p.emp?`<div class="emp">${p.emp}</div>`:''}
+      <p>${p.blurb}</p>
+      <span class="open">View case study <span class="arr">→</span></span>`;
+    card.onclick=()=>openModal(idx);
+    grid.appendChild(card);
+  });
+  empty.style.display=list.length?'none':'block';
+}
+
+function setFilter(k){
+  document.querySelectorAll('.chip').forEach(c=>c.classList.toggle('active',c.dataset.k===k));
+  render(k==='all'?PROJECTS:PROJECTS.filter(p=>p.disc.includes(k)));
+  window.scrollTo({top:document.querySelector('.controls').offsetTop-10,behavior:'smooth'});
+}
+
+const overlay=document.getElementById('overlay');
+function openModal(idx){
+  const p=PROJECTS[idx];
+  const tags=p.disc.map(d=>`<span class="tag ${DISC[d].cls}">${DISC[d].label}</span>`).join('');
+  document.getElementById('modalTop').innerHTML=`<div class="tagrow">${tags}</div>
+    <h2>${p.client}</h2>
+    ${p.emp?`<div class="emp">${p.emp}</div>`:''}
+    ${p.period?`<div class="period">${p.period}</div>`:''}`;
+  let html=`<h4>Context</h4><p class="ctx">${p.context}</p>
+    <h4>What I did</h4><ul>${p.did.map(d=>`<li>${d}</li>`).join('')}</ul>`;
+  if(p.results){html+=`<h4>Results</h4><div class="results">${p.results.map(r=>`<div class="r"><span>${r[0]}</span><b>${r[1]}</b></div>`).join('')}</div>`;}
+  if(p.report){html+=`<a class="dl" href="${p.report}" target="_blank" rel="noopener">⤓ Download GA4 report (PDF)</a>`;}
+  html+=`<h4>Tools &amp; skills</h4><div class="pill-row">${p.tools.map(t=>`<span class="pill">${t}</span>`).join('')}</div>`;
+  document.getElementById('modalBody').innerHTML=html;
+  overlay.classList.add('show');
+  document.body.style.overflow='hidden';
+  overlay.scrollTop=0;
+}
+function closeModal(){overlay.classList.remove('show');document.body.style.overflow=''}
+document.getElementById('close').onclick=closeModal;
+overlay.onclick=e=>{if(e.target===overlay)closeModal()};
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
+
+render(PROJECTS);
+</script>
+</body>
+</html>
