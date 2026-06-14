@@ -458,17 +458,30 @@ const PROJECTS = [
     tools:['React','TypeScript','Supabase (Postgres, RLS, Edge Functions, Storage)','Stripe Connect','Resend','Claude API','OpenAI DALL-E 3','Perplexity Sonar']
   },
   {
+    client:'Brain Mosaic', emp:'Learning Chronicles', period:'2025 – 2026',
+    disc:['ai'],
+    blurb:'AI scenario dashboard for a children’s social-skills app.',
+    context:'Built an admin platform for Learning Chronicles to author, test and manage AI-driven NPC scenarios for a children’s social-skills app.',
+    did:[
+      'Built an internal dashboard for authoring, previewing and testing AI-driven NPC scenarios before release.',
+      'Integrated Azure OpenAI (gpt-4o-mini) for live scenario generation and on-topic evaluation workflows.',
+      'Shipped REST API endpoints consumed by a Unity game client for scenario delivery and validation.',
+      'Implemented privacy controls across the platform and maintained 81 automated tests for release confidence.'
+    ],
+    tools:['Next.js','TypeScript','Azure OpenAI (gpt-4o-mini)','Supabase / Postgres','Vercel','GitHub','Cloudflare']
+  },
+  {
     client:'REVAA', emp:'Independent build', period:'2025 – 2026',
     disc:['ai'],
-    blurb:'A white-labelled Retell AI voice agent for estate agencies, with deep property-data integrations.',
-    context:'REVAA is a voice-AI product for estate agencies, built on Retell AI and rebuilt as a white-label platform.',
+    blurb:'White-label AI voice agent for estate agencies.',
+    context:'Built REVAA as a white-label AI voice agent for estate agencies, designed to qualify property leads end to end and route outcomes directly into client operations.',
     did:[
-      'Configured and optimised the Retell AI voice agent and led the white-label rebuild.',
-      'Integrated property and finance APIs: EPC, PropertyData, TrueLayer Open Banking and HMRC.',
-      'Produced deployment documentation and LinkedIn content for the product.',
-      'Explored a Saudi market expansion.'
+      'Built and configured the AI calling flow to qualify inbound property leads from initial call through structured handover.',
+      'Integrated GoHighLevel CRM (LeadConnector), EPC and PropertyData APIs, plus calendar booking and SMS flows.',
+      'Implemented webhook-driven post-call lead scoring and routing into the appropriate CRM pipelines.',
+      'Deployed the first live implementation for Citywide.'
     ],
-    tools:['Retell AI','API integration','Open Banking']
+    tools:['Retell AI','GoHighLevel / LeadConnector','EPC and PropertyData APIs','Zapier','webhooks']
   },
   {
     client:'GoHighLevel White-Label & Automation', emp:'Cornerstone Design & Marketing', period:'2026',
