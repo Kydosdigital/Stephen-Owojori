@@ -421,15 +421,41 @@ const PROJECTS = [
   {
     client:'Silks Estates', emp:'', period:'2026',
     disc:['web'],
-    blurb:'A full front-end redesign of a lettings website, built on a reusable token-based design system.',
-    context:'Silks Estates is a residential lettings and property management brand. I led the Phase 1 visual redesign, moving it from a generic look to a confident branded identity.',
+    blurb:'Property management website.',
+    context:'Designed and built a property management website with a contemporary Swiss minimalist design system, including component architecture (header, hero, layout), custom design tokens, brand styling and responsive layouts.',
     did:[
-      'Built a complete design system in CSS: brand palette around #662E91, shadow and radius scales, Swiss-grid spacing tokens, custom animations, reusable utilities, a branded scrollbar and accessible focus rings.',
-      'Rebuilt the Header as a sticky blurred nav bar with an active-link indicator and a responsive off-canvas mobile menu.',
-      'Designed the Hero with an accent headline, dual CTAs and a floating search card.',
-      'Iterated from feedback: restored dropped links, cut the hero overlay and re-centred content.'
+      'Designed and built a contemporary Swiss minimalist design system for a property management website.',
+      'Implemented component architecture across the header, hero and page layout.',
+      'Defined custom design tokens and brand styling to keep visual consistency.',
+      'Delivered responsive layouts across screen sizes.'
     ],
-    tools:['Next.js (App Router)','Tailwind CSS','TypeScript']
+    tools:['Next.js','React','Tailwind CSS','TypeScript']
+  },
+  {
+    client:'ClearGift', emp:'', period:'2026',
+    disc:['ai'],
+    blurb:'Open Banking Gift Aid automation.',
+    context:'Built a finance automation that captures donation and payment data through Open Banking and automates HMRC Gift Aid reconciliation, removing manual matching.',
+    did:[
+      'Captured donation and payment data through Open Banking feeds.',
+      'Automated HMRC Gift Aid reconciliation to remove manual matching work.',
+      'Connected donor and payment data across the automation workflow for consistent records.',
+      'Delivered the workflow as a productised Gift Aid operations layer.'
+    ],
+    tools:['TrueLayer (Open Banking)','Make','ChurchSuite','Claude API','HMRC']
+  },
+  {
+    client:'Arabic AI Chatbot and Outbound Voice Stack', emp:'', period:'2026',
+    disc:['ai'],
+    blurb:'Dialect-aware Arabic chatbot and outbound voice automation for the Saudi market.',
+    context:'Built a dialect-aware Arabic RAG chatbot in n8n with user tracking, plus an n8n and Retell workflow that captures web form submissions via webhook and triggers personalised outbound AI calls.',
+    did:[
+      'Built a dialect-aware Arabic RAG chatbot in n8n for the Saudi market.',
+      'Implemented user tracking to support session-level visibility and follow-up.',
+      'Built an n8n and Retell workflow that captures web form submissions via webhook.',
+      'Triggered personalised outbound AI calls from captured form submissions.'
+    ],
+    tools:['n8n','RAG','OpenAI','Retell AI','webhooks']
   },
   {
     client:'RONKE AI', emp:'Founder · RONKE AI', period:'2025 – present',
