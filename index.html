@@ -432,17 +432,30 @@ const PROJECTS = [
     tools:['Next.js (App Router)','Tailwind CSS','TypeScript']
   },
   {
-    client:'RONKE AI', emp:'Founder & CEO · RONKE AI Ltd', period:'2025 – present',
+    client:'RONKE AI', emp:'Founder · RONKE AI', period:'2025 – present',
     disc:['ai'],
-    blurb:'A healthtech venture: voice-first remote patient monitoring for digitally excluded heart failure patients.',
-    context:'I founded and lead RONKE AI Ltd (Company No. 16865109) in Manchester, building voice-first remote patient monitoring for elderly heart failure patients who cannot use smartphone health apps.',
+    blurb:'Production AI clinical voice platform for the NHS.',
+    context:'I founded RONKE AI and built a live telephone monitoring platform for elderly heart failure patients, designed around NHS clinical workflows and NICE-aligned conversations.',
     did:[
-      'Designed a system that makes proactive AI phone calls (landline and mobile compatible), holds natural clinical conversations and flags early warning signs to NHS clinical teams to reduce readmissions.',
-      'Prepared an Innovate UK Biomedical Catalyst grant application and designed a clinical validation study.',
-      'Repositioned the proposition from voice biomarkers toward voice-trend monitoring.',
-      'Produced NHS-standard study documentation, clinical risk frameworks, DSPT and GDPR compliance work, and IP and patent strategy.'
+      'Built and deployed outbound AI calling for real patient monitoring over telephone, including landline-compatible flows.',
+      'Implemented NICE-aligned clinical conversation paths that generate structured nurse reports with traffic-light risk scoring.',
+      'Included a real completed patient call in the production workflow to validate end-to-end call quality and reporting output.',
+      'Built an 8-agent CI/CD system supporting release workflows, monitoring and continuous iteration of the clinical voice platform.'
     ],
-    tools:['Grant writing','Clinical study design','Retell AI','DSPT / GDPR']
+    tools:['Next.js','TypeScript','Twilio (media streams)','OpenAI Whisper','GPT-4o','ElevenLabs','Neon Postgres','Drizzle','Clerk','Vercel','Railway','Claude API']
+  },
+  {
+    client:'ANU (African Network UK)', emp:'Founder', period:'2025 – present',
+    disc:['ai','web'],
+    blurb:'Two-sided community marketplace platform.',
+    context:'Built africannetwork.uk as a full community marketplace connecting users and businesses across food ordering, store and service discovery, bookings and community-led activity.',
+    did:[
+      'Built marketplace flows for food ordering, business discovery, service listings, bookings and community interactions.',
+      'Implemented Stripe Connect split payments and connected-account onboarding for multi-party transactions.',
+      'Delivered booking and payment flows with webhook-driven state handling across user and business journeys.',
+      'Built a business CRM and dashboard for lead, booking and payment operations.'
+    ],
+    tools:['React','TypeScript','Supabase (Postgres, RLS, Edge Functions, Storage)','Stripe Connect','Resend','Claude API','OpenAI DALL-E 3','Perplexity Sonar']
   },
   {
     client:'REVAA', emp:'Independent build', period:'2025 – 2026',
